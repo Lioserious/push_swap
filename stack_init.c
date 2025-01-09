@@ -6,18 +6,14 @@
 /*   By: lihrig <lihrig@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 15:44:16 by lihrig            #+#    #+#             */
-/*   Updated: 2025/01/09 20:25:44 by lihrig           ###   ########.fr       */
+/*   Updated: 2025/01/09 20:55:46 by lihrig           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "push_swap.h"
 #include <stdio.h>
 #include <stdlib.h>
 
-struct			Node
-{
-	int			data;
-	struct Node	*next;
-};
 // Erstellt Knoten
 struct Node	*createNode(int value)
 {
@@ -64,3 +60,42 @@ void	insertAtEnd(struct Node **head, int value)
 		temp = temp->next;
 	temp->next = newNode;
 }
+
+// // Funktion: Liste anzeigen
+// void	printList(struct Node *head)
+// {
+// 	struct Node	*temp;
+
+// 	temp = head;
+// 	while (temp != NULL)
+// 	{
+// 		printf("%d -> ", temp->data);
+// 		temp = temp->next;
+// 	}
+// 	printf("NULL\n");
+// }
+
+// int	main(int argc, char *argv)
+// {
+// 	struct Node *listA = NULL; // Erste Liste
+// 	struct Node *listB = NULL; // Zweite Liste
+
+// 	// Liste A füllen
+// 	insertAtEnd(&listA, 10);
+// 	insertAtEnd(&listA, 20);
+// 	insertAtEnd(&listA, 30);
+
+// 	// Liste B füllen
+// 	insertAtEnd(&listB, 100);
+// 	insertAtEnd(&listB, 200);
+// 	insertAtEnd(&listB, 300);
+
+// 	// Beide Listen anzeigen
+// 	printf("List A:\n");
+// 	printList(listA);
+
+// 	printf("List B:\n");
+// 	printList(listB);
+
+// 	return (0);
+// }
