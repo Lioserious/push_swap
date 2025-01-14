@@ -6,7 +6,7 @@
 /*   By: lihrig <lihrig@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 17:08:46 by lihrig            #+#    #+#             */
-/*   Updated: 2025/01/14 18:30:45 by lihrig           ###   ########.fr       */
+/*   Updated: 2025/01/14 19:09:31 by lihrig           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,4 +46,16 @@ void push_b(struct Node **head_a, struct Node **head_b)
 	*head_a = (*head_a)->next;
 	temp->next = *head_b;
 	*head_b = temp;
+}
+void ra_reverse_a(struct Node **head_a)
+{
+	if(*head_a == NULL || (*head_a)->next == NULL)
+		return;
+	struct Node *temp = *head_a;
+	*head_a = (*head_a)->next;
+	temp->next = NULL;
+	struct Node *curloop = *head_a;
+	while(curloop->next != NULL)
+		curloop = curloop->next;
+	curloop->next = temp;	
 }
