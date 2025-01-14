@@ -6,7 +6,7 @@
 /*   By: lihrig <lihrig@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 17:08:46 by lihrig            #+#    #+#             */
-/*   Updated: 2025/01/14 19:09:31 by lihrig           ###   ########.fr       */
+/*   Updated: 2025/01/14 20:13:45 by lihrig           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void push_b(struct Node **head_a, struct Node **head_b)
 	temp->next = *head_b;
 	*head_b = temp;
 }
-void ra_reverse_a(struct Node **head_a)
+void ra_rotate_a(struct Node **head_a)
 {
 	if(*head_a == NULL || (*head_a)->next == NULL)
 		return;
@@ -58,4 +58,56 @@ void ra_reverse_a(struct Node **head_a)
 	while(curloop->next != NULL)
 		curloop = curloop->next;
 	curloop->next = temp;	
+}
+void rb_rotate_b(struct Node **head_b)
+{
+	if(*head_b == NULL || (*head_b)->next == NULL)
+		return;
+	struct Node *temp = *head_b;
+	*head_b = (*head_b)->next;
+	temp->next = NULL;
+	struct Node *curloop = *head_b;
+	while(curloop->next != NULL)
+		curloop = curloop->next;
+	curloop->next = temp;	
+}
+void rr(struct Node **head_a, struct Node **head_b)
+{
+	ra_rotate_a(head_a);
+	rb_rotate_b(head_b);
+}
+void rra_reverse_a(struct Node **head_a)
+{
+	if(*head_a == NULL || (*head_a)->next == NULL)
+		return;
+	struct Node *prev = NULL;
+	struct Node *curloop = *head_a;
+	while(curloop->next != NULL)
+	{	
+		prev = curloop;
+		curloop = curloop->next;
+	}
+	prev->next = NULL;
+	curloop->next = *head_a;
+	*head_a = curloop;
+}
+void rrb_reverse_b(struct Node **head_b)
+{
+	if(*head_b == NULL || (*head_b)->next == NULL)
+		return;
+	struct Node *prev = NULL;
+	struct Node *curloop = *head_b;
+	while(curloop->next != NULL)
+	{	
+		prev = curloop;
+		curloop = curloop->next;
+	}
+	prev->next = NULL;
+	curloop->next = *head_b;
+	*head_b = curloop;
+}
+void rrr(struct Node **head_a, struct Node **head_b)
+{
+	rra_reverse_a(head_a);
+	rrb_reverse_b(head_b);
 }
