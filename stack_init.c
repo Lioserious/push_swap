@@ -6,7 +6,7 @@
 /*   By: lihrig <lihrig@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 15:44:16 by lihrig            #+#    #+#             */
-/*   Updated: 2025/01/14 16:56:02 by lihrig           ###   ########.fr       */
+/*   Updated: 2025/01/16 17:03:29 by lihrig           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 //atoi muss angepasst werden um den Input richtig zu catchen
-t_atoi(const char *str)
+int ft_atoi(const char *str)
 {
 	int i;
 	int nbr;
