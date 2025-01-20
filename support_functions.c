@@ -6,7 +6,7 @@
 /*   By: lihrig <lihrig@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 16:19:13 by lihrig            #+#    #+#             */
-/*   Updated: 2025/01/20 16:36:59 by lihrig           ###   ########.fr       */
+/*   Updated: 2025/01/20 16:37:48 by lihrig           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@ int exists_in_list(struct Node* head, long long int value)
 {
     struct Node* current = head;
     while (current != NULL) {
-        if (current->data == value) {
+        if (current->data == value) 
+		{
             return 1;
         }
         current = current->next;
