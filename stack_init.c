@@ -6,7 +6,7 @@
 /*   By: lihrig <lihrig@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 15:44:16 by lihrig            #+#    #+#             */
-/*   Updated: 2025/01/16 17:03:29 by lihrig           ###   ########.fr       */
+/*   Updated: 2025/01/20 16:45:08 by lihrig           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,11 +66,15 @@ void	freeList(struct Node **head)
 	}
 }
 // Fuegt Knoten am Ende ein bzw erstellt erstes Glied
+// Es fehlt noch die korrigierte return message
 void	insertAtEnd(struct Node **head, int value)
 {
 	struct Node	*newNode;
 	struct Node	*temp;
-
+	
+	if (exists_in_list(*head, value)) 
+		return(freeList(head));
+    
 	newNode = createNode(value);
 	if (newNode == NULL)
 	{
