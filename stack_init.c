@@ -6,38 +6,59 @@
 /*   By: lihrig <lihrig@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 15:44:16 by lihrig            #+#    #+#             */
-/*   Updated: 2025/01/28 14:20:15 by lihrig           ###   ########.fr       */
+/*   Updated: 2025/01/28 18:24:52 by lihrig           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include <limits.h>
 #include <stdio.h>
 #include <stdlib.h>
-//atoi muss angepasst werden um den Input richtig zu catchen
-int ft_atoi(const char *str)
-{
-	int i;
-	int nbr;
-	int vrz;
 
-	i = 0;
+// Freigeben der Liste wenn malloc fehlschlaegt
+void	freeList(struct Node **head)
+{
+	struct Node	*temp;
+
+	while (*head != NULL)
+	{
+		temp = *head;
+		*head = (*head)->next;
+		free(temp);
+	}
+	*head = NULL;
+}
+void	handle_error(struct Node **head)
+{
+	write(1, "Error\n", 6);
+	freeList(head);
+	exit(EXIT_FAILURE);
+}
+// atoi muss angepasst werden um den Input richtig zu catchen
+int	adjusted_ft_atoi(const char *str, struct Node **head)
+{
+	long	nbr;
+	int		vrz;
+
 	nbr = 0;
 	vrz = 1;
-	while (str[i] == ' ' || str[i] == '\n' || str[i] == '\t' || str[i] == '\v'
-		|| str[i] == '\f' || str[i] == '\r')
-		i++;
-	if (str[i] == '-' || str[i] == '+')
+	while (*str == ' ' || *str == '\n' || *str == '\t' || *str == '\v'
+		|| *str == '\f' || *str == '\r')
+		str++;
+	if (*str == '-' || *str == '+')
 	{
-		if (str[i] == '-')
+		if (*str == '-')
 			vrz = -1;
-		i++;
+		str++;
 	}
-	if (!(str[i] >= '0' && str[i] <= '9'))
-		return (0);
-	while (str[i] >= '0' && str[i] <= '9')
+	while (!(*str >= '0' && *str <= '9'))
+		handle_error(head);
+	while (*str >= '0' && *str <= '9')
 	{
-		nbr = nbr * 10 + (str[i] - '0');
-		i++;
+		nbr = nbr * 10 + (*str - '0');
+		if ((nbr * vrz) > INT_MAX || (nbr * vrz) < INT_MIN)
+			handle_error(head);
+		str++;
 	}
 	return (nbr * vrz);
 }
@@ -53,28 +74,19 @@ struct Node	*createNode(int value)
 	newNode->next = NULL;
 	return (newNode);
 }
-// Freigeben der Liste wenn malloc fehlschlaegt
-void	freeList(struct Node **head)
-{
-	struct Node	*temp;
-
-	while (*head != NULL)
-	{
-		temp = *head;
-		*head = (*head)->next;
-		free(temp);
-	}
-}
 // Fuegt Knoten am Ende ein bzw erstellt erstes Glied
 // Es fehlt noch die korrigierte return message
 void	insertAtEnd(struct Node **head, int value)
 {
 	struct Node	*newNode;
 	struct Node	*temp;
-	
-	if (exists_in_list(*head, value)) 
-		return(freeList(head));
-    
+
+	if (exists_in_list(*head, value))
+	{
+		write(1, "Error\n", 6);
+		freeList(head);
+		exit(EXIT_FAILURE);
+	}
 	newNode = createNode(value);
 	if (newNode == NULL)
 	{
@@ -119,6 +131,22 @@ int	getListLength(struct Node *head)
 	}
 	return (count);
 }
+int	check_if_numeric(char *str)
+{
+	int	i = 0;
+
+	if (!str || *str == '\0')
+		return (0);
+	if (str[i] == '-' || str[i] == '+')
+		i++;
+	while (str[i])
+	{
+		if (str[i] < '0' || str[i] > '9')
+			return (0);
+		i++;
+	}
+	return (1);
+}
 
 int	main(int argc, char **argv)
 {
@@ -131,7 +159,9 @@ int	main(int argc, char **argv)
 	i = 1;
 	while (i < argc)
 	{
-		value = ft_atoi(argv[i]);
+		if(!check_if_numeric(argv[i]))
+			handle_error(&listA);
+		value = adjusted_ft_atoi(argv[i],&listA);
 		insertAtEnd(&listA, value);
 		i++;
 	}
@@ -145,5 +175,7 @@ int	main(int argc, char **argv)
 	printList(listA);
 	write(1, "/n", 1);
 	printList(listB);
+	freeList(&listA);
+	freeList(&listB);
 	return (0);
 }
