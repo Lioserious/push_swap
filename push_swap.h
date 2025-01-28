@@ -6,13 +6,13 @@
 /*   By: lihrig <lihrig@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 12:16:29 by lihrig            #+#    #+#             */
-/*   Updated: 2025/01/20 16:38:38 by lihrig           ###   ########.fr       */
+/*   Updated: 2025/01/28 17:19:34 by lihrig           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
-// # include "../Libft/libft.h"
+# include "../Libft/libft.h"
 # include <stddef.h>
 # include <stdlib.h>
 # include <unistd.h>
