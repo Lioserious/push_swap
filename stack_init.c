@@ -6,7 +6,7 @@
 /*   By: lihrig <lihrig@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 15:44:16 by lihrig            #+#    #+#             */
-/*   Updated: 2025/01/20 16:45:08 by lihrig           ###   ########.fr       */
+/*   Updated: 2025/01/28 14:20:15 by lihrig           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,7 @@ void	insertAtEnd(struct Node **head, int value)
 	temp->next = newNode;
 }
 
-// Funktion: Liste anzeigen
+// Funktion: Liste anzeigen, PRINTF Ersetzen
 void	printList(struct Node *head)
 {
 	struct Node	*temp;

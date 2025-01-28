@@ -6,7 +6,7 @@
 /*   By: lihrig <lihrig@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 17:08:46 by lihrig            #+#    #+#             */
-/*   Updated: 2025/01/14 20:13:45 by lihrig           ###   ########.fr       */
+/*   Updated: 2025/01/28 14:23:48 by lihrig           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void ss_swap_swap(struct Node **head_a, struct Node **head_b)
 	sa_swap_a(head_b);
 }
 // temp->next = *head_a; verknuepft temp mit der bereits bestehenden list von a
-void push_a(struct Node **head_a, struct Node **head_b)
+void pa_push_a(struct Node **head_a, struct Node **head_b)
 {
 	if(*head_b == NULL)
 		return;
@@ -38,7 +38,7 @@ void push_a(struct Node **head_a, struct Node **head_b)
 	temp->next = *head_a;
 	*head_a = temp;
 }
-void push_b(struct Node **head_a, struct Node **head_b)
+void pb_push_b(struct Node **head_a, struct Node **head_b)
 {
 	if(*head_a == NULL)
 		return;
