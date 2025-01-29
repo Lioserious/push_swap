@@ -6,7 +6,7 @@
 /*   By: lihrig <lihrig@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 15:44:16 by lihrig            #+#    #+#             */
-/*   Updated: 2025/01/28 18:24:52 by lihrig           ###   ########.fr       */
+/*   Updated: 2025/01/29 14:46:56 by lihrig           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,11 +82,7 @@ void	insertAtEnd(struct Node **head, int value)
 	struct Node	*temp;
 
 	if (exists_in_list(*head, value))
-	{
-		write(1, "Error\n", 6);
-		freeList(head);
-		exit(EXIT_FAILURE);
-	}
+		handle_error(head);
 	newNode = createNode(value);
 	if (newNode == NULL)
 	{
