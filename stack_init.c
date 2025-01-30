@@ -6,7 +6,7 @@
 /*   By: lihrig <lihrig@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 15:44:16 by lihrig            #+#    #+#             */
-/*   Updated: 2025/01/29 14:46:56 by lihrig           ###   ########.fr       */
+/*   Updated: 2025/01/30 18:46:23 by lihrig           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,32 @@ void	handle_error(struct Node **head)
 	freeList(head);
 	exit(EXIT_FAILURE);
 }
-// atoi muss angepasst werden um den Input richtig zu catchen
-int	adjusted_ft_atoi(const char *str, struct Node **head)
+int	check_if_numeric(const char *str)
+{
+	int	i;
+	int	digits_exist;
+
+	digits_exist = 0;
+	i = 0;
+	if (!str || *str == '\0')
+		return (0);
+	while (*str == ' ' || *str == '\n' || *str == '\t' || *str == '\v'
+		|| *str == '\f' || *str == '\r')
+		str++;
+	if (str[i] == '-' || str[i] == '+')
+		i++;
+	if (str[i] < '0' || str[i] > '9')
+		return (0);
+	while (str[i] >= '0' && str[i] <= '9')
+	{
+		digits_exist = 1;
+		i++;
+	}
+	if (str[i] != '\0')
+		return (0);
+	return (1);
+}
+long long int	convert_to_int(const char *str, struct Node **head)
 {
 	long	nbr;
 	int		vrz;
@@ -51,16 +75,22 @@ int	adjusted_ft_atoi(const char *str, struct Node **head)
 			vrz = -1;
 		str++;
 	}
-	while (!(*str >= '0' && *str <= '9'))
-		handle_error(head);
 	while (*str >= '0' && *str <= '9')
 	{
-		nbr = nbr * 10 + (*str - '0');
-		if ((nbr * vrz) > INT_MAX || (nbr * vrz) < INT_MIN)
+		if (nbr > (INT_MAX / 10) || (nbr == (INT_MAX / 10) && (*str
+					- '0') > (INT_MAX % 10)))
 			handle_error(head);
+		nbr = nbr * 10 + (*str - '0');
 		str++;
 	}
 	return (nbr * vrz);
+}
+// atoi muss angepasst werden um den Input richtig zu catchen
+long long int	adjusted_ft_atoi(const char *str, struct Node **head)
+{
+	if (!check_if_numeric(str))
+		handle_error(head);
+	return (convert_to_int(str, head));
 }
 // Erstellt Knoten
 struct Node	*createNode(int value)
@@ -76,7 +106,7 @@ struct Node	*createNode(int value)
 }
 // Fuegt Knoten am Ende ein bzw erstellt erstes Glied
 // Es fehlt noch die korrigierte return message
-void	insertAtEnd(struct Node **head, int value)
+void	insertAtEnd(struct Node **head, long long int value)
 {
 	struct Node	*newNode;
 	struct Node	*temp;
@@ -127,51 +157,81 @@ int	getListLength(struct Node *head)
 	}
 	return (count);
 }
-int	check_if_numeric(char *str)
+static int	process_string_with_spaces(char *str, struct Node **listA)
 {
-	int	i = 0;
+	char			**numbers;
+	int				j;
+	long long int	value;
 
-	if (!str || *str == '\0')
-		return (0);
-	if (str[i] == '-' || str[i] == '+')
-		i++;
-	while (str[i])
+	numbers = ft_split(str, ' ');
+	if (!numbers)
+		handle_error(listA);
+	j = 0;
+	while (numbers[j] != NULL)
 	{
-		if (str[i] < '0' || str[i] > '9')
-			return (0);
+		value = adjusted_ft_atoi(numbers[j], listA);
+		if (value < INT_MIN || value > INT_MAX)
+		{
+			free_the_mellok(&numbers);
+			handle_error(listA);
+		}
+		insertAtEnd(listA, value);
+		j++;
+	}
+	free_the_mellok(&numbers);
+	return (0);
+}
+
+// Verarbeitet ein einzelnes Argument
+static int	process_single_arg(char *str, struct Node **listA)
+{
+	long long int	value;
+
+	value = adjusted_ft_atoi(str, listA);
+	if (value < INT_MIN || value > INT_MAX)
+		handle_error(listA);
+	insertAtEnd(listA, value);
+	return (0);
+}
+
+// Hauptfunktion für die Eingabeverarbeitung
+int	process_input(int argc, char **argv, struct Node **listA)
+{
+	int	i;
+
+	i = 1;
+	while (i < argc)
+	{
+		if (ft_strchr(argv[i], ' ') != NULL)
+		{
+			if (process_string_with_spaces(argv[i], listA) != 0)
+				return (1);
+		}
+		else
+		{
+			if (process_single_arg(argv[i], listA) != 0)
+				return (1);
+		}
 		i++;
 	}
-	return (1);
+	return (0);
 }
 
 int	main(int argc, char **argv)
 {
-	int				i;
-	int				list_length;
 	long long int	value;
+	int				i;
 
 	struct Node *listA = NULL; // Erste Liste
-	struct Node *listB = NULL; // Zweite Liste
 	i = 1;
 	while (i < argc)
 	{
-		if(!check_if_numeric(argv[i]))
-			handle_error(&listA);
-		value = adjusted_ft_atoi(argv[i],&listA);
+		value = adjusted_ft_atoi(argv[i], &listA);
 		insertAtEnd(&listA, value);
 		i++;
 	}
-	list_length = getListLength(listA);
-	i = 0;
-	while (i < list_length)
-	{
-		insertAtEnd(&listB, 0);
-		i++;
-	}
 	printList(listA);
-	write(1, "/n", 1);
-	printList(listB);
+	write(1, "\n", 1);
 	freeList(&listA);
-	freeList(&listB);
 	return (0);
 }
