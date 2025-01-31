@@ -6,7 +6,7 @@
 /*   By: lihrig <lihrig@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 12:18:59 by lihrig            #+#    #+#             */
-/*   Updated: 2025/01/31 15:50:57 by lihrig           ###   ########.fr       */
+/*   Updated: 2025/01/31 15:54:22 by lihrig           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-static int	process_string_with_spaces(char *str, struct Node **listA)
+int	process_string_with_spaces(char *str, struct Node **listA)
 {
 	char			**numbers;
 	int				j;
@@ -41,7 +41,7 @@ static int	process_string_with_spaces(char *str, struct Node **listA)
 }
 
 // Verarbeitet ein einzelnes Argument
-static int	process_single_arg(char *str, struct Node **listA)
+int	process_single_arg(char *str, struct Node **listA)
 {
 	long long int	value;
 

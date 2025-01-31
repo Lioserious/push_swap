@@ -6,7 +6,7 @@
 /*   By: lihrig <lihrig@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 12:16:29 by lihrig            #+#    #+#             */
-/*   Updated: 2025/01/31 15:50:40 by lihrig           ###   ########.fr       */
+/*   Updated: 2025/01/31 15:54:10 by lihrig           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@ void			freeList(struct Node **head);
 void			handle_error(struct Node **head);
 void			free_the_mellok(char ***split_array);
 // input_processing
-static int		process_string_with_spaces(char *str, struct Node **listA);
-static int		process_single_arg(char *str, struct Node **listA);
+int				process_string_with_spaces(char *str, struct Node **listA);
+int				process_single_arg(char *str, struct Node **listA);
 int				process_input(int argc, char **argv, struct Node **listA);
 // input_validation
 int				check_if_numeric(const char *str);
