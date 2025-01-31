@@ -6,40 +6,40 @@
 /*   By: lihrig <lihrig@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 16:19:13 by lihrig            #+#    #+#             */
-/*   Updated: 2025/01/31 15:15:37 by lihrig           ###   ########.fr       */
+/*   Updated: 2025/01/31 17:00:45 by lihrig           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include <stdio.h>
 
-int exists_in_list(struct Node* head, long long int value)
+int	exists_in_list(struct Node *head, long long int value)
 {
-    struct Node* current = head;
-    
-    while (current != NULL)
-    {
-        if (current->data == value) // Hier könnte das Problem liegen
-            return (1);
-        current = current->next;
-    }
-    return (0);
+	struct Node	*current;
+
+	current = head;
+	while (current != NULL)
+	{
+		if (current->data == value) // Hier könnte das Problem liegen
+			return (1);
+		current = current->next;
+	}
+	return (0);
 }
 
 /** Hilfsfunktion zum Zählen der Wörter in einem String */
-int count_numbers(const char *str)
+int	count_numbers(const char *str)
 {
-	int count;
-	int in_number;
-	int i;
-	
+	int	count;
+	int	in_number;
+	int	i;
+
 	i = 0;
 	count = 0;
 	in_number = 0;
-	
-	while(str[i] != '\0')
+	while (str[i] != '\0')
 	{
-		if(str[i] == ' ' || str[i] == '\t')
+		if (str[i] == ' ' || str[i] == '\t')
 			in_number = 0;
 		else if (in_number == 0)
 		{
@@ -49,4 +49,27 @@ int count_numbers(const char *str)
 		i++;
 	}
 	return (count);
+}
+int	find_min_position(struct Node *head)
+{
+	int min;
+	int pos;
+	int min_pos;
+	struct Node *current;
+
+	min = INT_MIN;
+	pos = 0;
+	min_pos = 0;
+	current = head;
+	while (current != NULL)
+	{
+		if (current->data < min)
+		{
+			min = current->data;
+			min_pos = pos;
+		}
+		pos++;
+		current = current->next;
+	}
+	return (min_pos);
 }
