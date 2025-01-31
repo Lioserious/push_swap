@@ -1,30 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lihrig <lihrig@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/06 12:16:29 by lihrig            #+#    #+#             */
-/*   Updated: 2025/01/31 15:12:35 by lihrig           ###   ########.fr       */
+/*   Created: 2025/01/06 12:18:59 by lihrig            #+#    #+#             */
+/*   Updated: 2025/01/06 12:18:59 by lihrig           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
-# include "../Libft/libft.h"
-# include <stddef.h>
-# include <stdlib.h>
-# include <unistd.h>
-
-struct			Node
-{
-	int			data;
-	struct Node	*next;
-};
-int		ft_atoi(const char *str);
-int exists_in_list(struct Node* head, long long int value);
-int count_numbers(const char *str);
-void	free_the_mellok(char ***split_array);
-
-#endif

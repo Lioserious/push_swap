@@ -6,14 +6,14 @@
 /*   By: lihrig <lihrig@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 18:21:03 by lihrig            #+#    #+#             */
-/*   Updated: 2025/01/30 18:26:11 by lihrig           ###   ########.fr       */
+/*   Updated: 2025/01/31 15:15:12 by lihrig           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include <stdio.h>
 
-static void	free_the_mellok(char ***split_array)
+void	free_the_mellok(char ***split_array)
 {
 	int	i;
 

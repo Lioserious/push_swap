@@ -6,14 +6,14 @@
 /*   By: lihrig <lihrig@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 16:19:13 by lihrig            #+#    #+#             */
-/*   Updated: 2025/01/30 18:18:09 by lihrig           ###   ########.fr       */
+/*   Updated: 2025/01/31 15:15:37 by lihrig           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include <stdio.h>
 
-static int exists_in_list(struct Node* head, long long int value)
+int exists_in_list(struct Node* head, long long int value)
 {
     struct Node* current = head;
     
@@ -27,7 +27,7 @@ static int exists_in_list(struct Node* head, long long int value)
 }
 
 /** Hilfsfunktion zum Zählen der Wörter in einem String */
-static int count_numbers(const char *str)
+int count_numbers(const char *str)
 {
 	int count;
 	int in_number;

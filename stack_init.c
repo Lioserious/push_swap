@@ -6,7 +6,7 @@
 /*   By: lihrig <lihrig@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 15:44:16 by lihrig            #+#    #+#             */
-/*   Updated: 2025/01/30 18:46:23 by lihrig           ###   ########.fr       */
+/*   Updated: 2025/01/31 15:24:02 by lihrig           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ int	check_if_numeric(const char *str)
 }
 long long int	convert_to_int(const char *str, struct Node **head)
 {
-	long	nbr;
+	long long int nbr;
 	int		vrz;
 
 	nbr = 0;
@@ -75,14 +75,14 @@ long long int	convert_to_int(const char *str, struct Node **head)
 			vrz = -1;
 		str++;
 	}
-	while (*str >= '0' && *str <= '9')
-	{
-		if (nbr > (INT_MAX / 10) || (nbr == (INT_MAX / 10) && (*str
-					- '0') > (INT_MAX % 10)))
-			handle_error(head);
-		nbr = nbr * 10 + (*str - '0');
-		str++;
-	}
+    while (*str >= '0' && *str <= '9')
+    {
+        nbr = nbr * 10 + (*str - '0');
+        if ((vrz == 1 && nbr > INT_MAX) || 
+            (vrz == -1 && nbr > -(long long int)INT_MIN))
+            handle_error(head);
+        str++;
+    }
 	return (nbr * vrz);
 }
 // atoi muss angepasst werden um den Input richtig zu catchen
@@ -217,21 +217,17 @@ int	process_input(int argc, char **argv, struct Node **listA)
 	return (0);
 }
 
-int	main(int argc, char **argv)
+int main(int argc, char **argv)
 {
-	long long int	value;
-	int				i;
+    struct Node *listA = NULL;
 
-	struct Node *listA = NULL; // Erste Liste
-	i = 1;
-	while (i < argc)
-	{
-		value = adjusted_ft_atoi(argv[i], &listA);
-		insertAtEnd(&listA, value);
-		i++;
-	}
-	printList(listA);
-	write(1, "\n", 1);
-	freeList(&listA);
-	return (0);
+    if (argc < 2)
+        return (0);
+    if (process_input(argc, argv, &listA) != 0)
+        return (1);
+
+    printList(listA);
+    write(1, "\n", 1);
+    freeList(&listA);
+    return (0);
 }
