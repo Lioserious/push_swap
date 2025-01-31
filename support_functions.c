@@ -6,7 +6,7 @@
 /*   By: lihrig <lihrig@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 16:19:13 by lihrig            #+#    #+#             */
-/*   Updated: 2025/01/31 17:05:49 by lihrig           ###   ########.fr       */
+/*   Updated: 2025/01/31 17:06:11 by lihrig           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,7 @@ int	find_max_position(struct Node *head)
 	{
 		if (current->data > max)
 		{
-			min = current->data;
+			max = current->data;
 			min_pos = pos;
 		}
 		pos++;
