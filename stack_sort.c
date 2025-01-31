@@ -6,7 +6,7 @@
 /*   By: lihrig <lihrig@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 17:08:46 by lihrig            #+#    #+#             */
-/*   Updated: 2025/01/31 16:52:09 by lihrig           ###   ########.fr       */
+/*   Updated: 2025/01/31 17:05:23 by lihrig           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,8 +54,8 @@ void	pb_push_b(struct Node **head_a, struct Node **head_b)
 }
 void	ra_rotate_a(struct Node **head_a)
 {
-	struct Node	*temp;
-	struct Node	*curloop;
+	struct Node *temp;
+	struct Node *curloop;
 
 	if (*head_a == NULL || (*head_a)->next == NULL)
 		return ;
