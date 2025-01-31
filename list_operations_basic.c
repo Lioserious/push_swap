@@ -6,7 +6,7 @@
 /*   By: lihrig <lihrig@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 15:36:44 by lihrig            #+#    #+#             */
-/*   Updated: 2025/01/31 15:38:00 by lihrig           ###   ########.fr       */
+/*   Updated: 2025/01/31 15:50:54 by lihrig           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ int	getListLength(struct Node *head)
 // Funktion: Liste anzeigen, PRINTF Ersetzen UND LOESCHEN
 void	printList(struct Node *head)
 {
-	struct Node	*temp;
+	struct Node *temp;
 
 	temp = head;
 	while (temp != NULL)

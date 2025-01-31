@@ -6,7 +6,7 @@
 #    By: lihrig <lihrig@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/04 14:13:24 by lihrig            #+#    #+#              #
-#    Updated: 2025/01/31 15:08:04 by lihrig           ###   ########.fr        #
+#    Updated: 2025/01/31 15:51:49 by lihrig           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,11 +18,12 @@ CC_FLAGS = -Wall -Werror -Wextra
 PUSHSWAP = push_swap
 
 # Source and Object Files
-SRC_FILES = push_swap.c \
-			stack_sort.c \
-			stack_init.c \
+SRC_FILES = error_handling.c \
 			support_functions.c \
 			push_swap_split.c \
+			input_processing.c \
+			input_validation.c \
+			list_operations_basic.c \
 			main.c \
 			
 

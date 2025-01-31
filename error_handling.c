@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   error_handling.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lihrig <lihrig@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/08 15:44:16 by lihrig            #+#    #+#             */
-/*   Updated: 2025/01/31 15:50:51 by lihrig           ###   ########.fr       */
+/*   Created: 2025/01/31 15:39:42 by lihrig            #+#    #+#             */
+/*   Updated: 2025/01/31 15:50:58 by lihrig           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,17 +15,22 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int	main(int argc, char **argv)
+// Freigeben der Liste wenn malloc fehlschlaegt
+void	freeList(struct Node **head)
 {
-	struct Node	*listA;
+	struct Node	*temp;
 
-	listA = NULL;
-	if (argc < 2)
-		return (0);
-	if (process_input(argc, argv, &listA) != 0)
-		return (1);
-	printList(listA);
-	write(1, "\n", 1);
-	freeList(&listA);
-	return (0);
+	while (*head != NULL)
+	{
+		temp = *head;
+		*head = (*head)->next;
+		free(temp);
+	}
+	*head = NULL;
+}
+void	handle_error(struct Node **head)
+{
+	write(1, "Error\n", 6);
+	freeList(head);
+	exit(EXIT_FAILURE);
 }
