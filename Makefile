@@ -6,7 +6,7 @@
 #    By: lihrig <lihrig@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/04 14:13:24 by lihrig            #+#    #+#              #
-#    Updated: 2025/01/28 17:25:08 by lihrig           ###   ########.fr        #
+#    Updated: 2025/01/31 15:08:04 by lihrig           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,6 +22,7 @@ SRC_FILES = push_swap.c \
 			stack_sort.c \
 			stack_init.c \
 			support_functions.c \
+			push_swap_split.c \
 			main.c \
 			
 
