@@ -6,7 +6,7 @@
 /*   By: lihrig <lihrig@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 16:19:13 by lihrig            #+#    #+#             */
-/*   Updated: 2025/01/31 17:00:45 by lihrig           ###   ########.fr       */
+/*   Updated: 2025/01/31 17:02:56 by lihrig           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,13 +57,37 @@ int	find_min_position(struct Node *head)
 	int min_pos;
 	struct Node *current;
 
-	min = INT_MIN;
+	min = INT_MAX;
 	pos = 0;
 	min_pos = 0;
 	current = head;
 	while (current != NULL)
 	{
 		if (current->data < min)
+		{
+			min = current->data;
+			min_pos = pos;
+		}
+		pos++;
+		current = current->next;
+	}
+	return (min_pos);
+}
+
+int	find_max_position(struct Node *head)
+{
+	int max;
+	int pos;
+	int min_pos;
+	struct Node *current;
+
+	max = INT_MIN;
+	pos = 0;
+	min_pos = 0;
+	current = head;
+	while (current != NULL)
+	{
+		if (current->data > min)
 		{
 			min = current->data;
 			min_pos = pos;
