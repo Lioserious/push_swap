@@ -6,7 +6,7 @@
 /*   By: lihrig <lihrig@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 16:19:13 by lihrig            #+#    #+#             */
-/*   Updated: 2025/01/31 17:02:56 by lihrig           ###   ########.fr       */
+/*   Updated: 2025/01/31 17:05:27 by lihrig           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,10 +52,10 @@ int	count_numbers(const char *str)
 }
 int	find_min_position(struct Node *head)
 {
-	int min;
-	int pos;
-	int min_pos;
-	struct Node *current;
+	int			min;
+	int			pos;
+	int			min_pos;
+	struct Node	*current;
 
 	min = INT_MAX;
 	pos = 0;
@@ -76,10 +76,10 @@ int	find_min_position(struct Node *head)
 
 int	find_max_position(struct Node *head)
 {
-	int max;
-	int pos;
-	int min_pos;
-	struct Node *current;
+	int			max;
+	int			pos;
+	int			min_pos;
+	struct Node	*current;
 
 	max = INT_MIN;
 	pos = 0;
