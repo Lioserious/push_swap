@@ -6,21 +6,21 @@
 /*   By: lihrig <lihrig@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 16:19:13 by lihrig            #+#    #+#             */
-/*   Updated: 2025/01/31 17:06:11 by lihrig           ###   ########.fr       */
+/*   Updated: 2025/02/02 16:25:49 by lihrig           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include <stdio.h>
 
-int	exists_in_list(struct Node *head, long long int value)
+int	exists_in_list(struct s_Node *head, long long int value)
 {
-	struct Node	*current;
+	struct s_Node	*current;
 
 	current = head;
 	while (current != NULL)
 	{
-		if (current->data == value) // Hier könnte das Problem liegen
+		if (current->data == value)
 			return (1);
 		current = current->next;
 	}
@@ -50,12 +50,13 @@ int	count_numbers(const char *str)
 	}
 	return (count);
 }
-int	find_min_position(struct Node *head)
+
+int	find_min_position(struct s_Node *head)
 {
-	int			min;
-	int			pos;
-	int			min_pos;
-	struct Node	*current;
+	int				min;
+	int				pos;
+	int				min_pos;
+	struct s_Node	*current;
 
 	min = INT_MAX;
 	pos = 0;
@@ -74,12 +75,12 @@ int	find_min_position(struct Node *head)
 	return (min_pos);
 }
 
-int	find_max_position(struct Node *head)
+int	find_max_position(struct s_Node *head)
 {
-	int			max;
-	int			pos;
-	int			min_pos;
-	struct Node	*current;
+	int				max;
+	int				pos;
+	int				min_pos;
+	struct s_Node	*current;
 
 	max = INT_MIN;
 	pos = 0;

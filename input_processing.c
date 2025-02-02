@@ -6,7 +6,7 @@
 /*   By: lihrig <lihrig@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 12:18:59 by lihrig            #+#    #+#             */
-/*   Updated: 2025/01/31 15:54:22 by lihrig           ###   ########.fr       */
+/*   Updated: 2025/02/02 16:15:59 by lihrig           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int	process_string_with_spaces(char *str, struct Node **listA)
+int	process_string_with_spaces(char *str, struct s_Node **listA)
 {
 	char			**numbers;
 	int				j;
@@ -33,7 +33,7 @@ int	process_string_with_spaces(char *str, struct Node **listA)
 			free_the_mellok(&numbers);
 			handle_error(listA);
 		}
-		insertAtEnd(listA, value);
+		insert_at_end(listA, value);
 		j++;
 	}
 	free_the_mellok(&numbers);
@@ -41,19 +41,19 @@ int	process_string_with_spaces(char *str, struct Node **listA)
 }
 
 // Verarbeitet ein einzelnes Argument
-int	process_single_arg(char *str, struct Node **listA)
+int	process_single_arg(char *str, struct s_Node **listA)
 {
 	long long int	value;
 
 	value = adjusted_ft_atoi(str, listA);
 	if (value < INT_MIN || value > INT_MAX)
 		handle_error(listA);
-	insertAtEnd(listA, value);
+	insert_at_end(listA, value);
 	return (0);
 }
 
 // Hauptfunktion für die Eingabeverarbeitung
-int	process_input(int argc, char **argv, struct Node **listA)
+int	process_input(int argc, char **argv, struct s_Node **listA)
 {
 	int	i;
 

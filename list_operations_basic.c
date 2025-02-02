@@ -6,7 +6,7 @@
 /*   By: lihrig <lihrig@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 15:36:44 by lihrig            #+#    #+#             */
-/*   Updated: 2025/01/31 16:15:51 by lihrig           ###   ########.fr       */
+/*   Updated: 2025/02/02 16:23:55 by lihrig           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,46 +16,48 @@
 #include <stdlib.h>
 
 // Erstellt Knoten
-struct Node	*createNode(int value)
+struct s_Node	*create_node(int value)
 {
-	struct Node	*newNode;
+	struct s_Node	*new_node;
 
-	newNode = (struct Node *)malloc(sizeof(struct Node));
-	if (newNode == NULL)
+	new_node = (struct s_Node *)malloc(sizeof(struct s_Node));
+	if (new_node == NULL)
 		return (NULL);
-	newNode->data = value;
-	newNode->next = NULL;
-	return (newNode);
+	new_node->data = value;
+	new_node->next = NULL;
+	return (new_node);
 }
+
 // Fuegt Knoten am Ende ein bzw erstellt erstes Glied
 // Es fehlt noch die korrigierte return message
-void	insertAtEnd(struct Node **head, long long int value)
+void	insert_at_end(struct s_Node **head, long long int value)
 {
-	struct Node	*newNode;
-	struct Node	*temp;
+	struct s_Node	*new_node;
+	struct s_Node	*temp;
 
 	if (exists_in_list(*head, value))
 		handle_error(head);
-	newNode = createNode(value);
-	if (newNode == NULL)
+	new_node = create_node(value);
+	if (new_node == NULL)
 	{
-		freeList(head);
+		free_list(head);
 		return ;
 	}
 	if (*head == NULL)
 	{
-		*head = newNode;
+		*head = new_node;
 		return ;
 	}
 	temp = *head;
 	while (temp->next != NULL)
 		temp = temp->next;
-	temp->next = newNode;
+	temp->next = new_node;
 }
-int	getListLength(struct Node *head)
+
+int	get_list_length(struct s_Node *head)
 {
-	int			count;
-	struct Node	*temp;
+	int				count;
+	struct s_Node	*temp;
 
 	count = 0;
 	temp = head;
@@ -66,10 +68,11 @@ int	getListLength(struct Node *head)
 	}
 	return (count);
 }
+
 // Funktion: Liste anzeigen, PRINTF Ersetzen UND LOESCHEN
-void	printList(struct Node *head)
+void	print_list(struct s_Node *head)
 {
-	struct Node *temp;
+	struct s_Node	*temp;
 
 	temp = head;
 	while (temp != NULL)

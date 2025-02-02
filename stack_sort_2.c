@@ -6,16 +6,16 @@
 /*   By: lihrig <lihrig@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 17:08:46 by lihrig            #+#    #+#             */
-/*   Updated: 2025/01/31 17:07:10 by lihrig           ###   ########.fr       */
+/*   Updated: 2025/02/02 16:24:38 by lihrig           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	rb_rotate_b(struct Node **head_b)
+void	rb_rotate_b(struct s_Node **head_b)
 {
-	struct Node	*temp;
-	struct Node	*curloop;
+	struct s_Node	*temp;
+	struct s_Node	*curloop;
 
 	if (*head_b == NULL || (*head_b)->next == NULL)
 		return ;
@@ -27,15 +27,17 @@ void	rb_rotate_b(struct Node **head_b)
 		curloop = curloop->next;
 	curloop->next = temp;
 }
-void	rr(struct Node **head_a, struct Node **head_b)
+
+void	rr(struct s_Node **head_a, struct s_Node **head_b)
 {
 	ra_rotate_a(head_a);
 	rb_rotate_b(head_b);
 }
-void	rra_reverse_a(struct Node **head_a)
+
+void	rra_reverse_a(struct s_Node **head_a)
 {
-	struct Node	*prev;
-	struct Node	*curloop;
+	struct s_Node	*prev;
+	struct s_Node	*curloop;
 
 	if (*head_a == NULL || (*head_a)->next == NULL)
 		return ;
@@ -50,10 +52,11 @@ void	rra_reverse_a(struct Node **head_a)
 	curloop->next = *head_a;
 	*head_a = curloop;
 }
-void	rrb_reverse_b(struct Node **head_b)
+
+void	rrb_reverse_b(struct s_Node **head_b)
 {
-	struct Node	*prev;
-	struct Node	*curloop;
+	struct s_Node	*prev;
+	struct s_Node	*curloop;
 
 	if (*head_b == NULL || (*head_b)->next == NULL)
 		return ;
@@ -68,7 +71,8 @@ void	rrb_reverse_b(struct Node **head_b)
 	curloop->next = *head_b;
 	*head_b = curloop;
 }
-void	rrr(struct Node **head_a, struct Node **head_b)
+
+void	rrr(struct s_Node **head_a, struct s_Node **head_b)
 {
 	rra_reverse_a(head_a);
 	rrb_reverse_b(head_b);

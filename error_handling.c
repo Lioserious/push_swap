@@ -6,7 +6,7 @@
 /*   By: lihrig <lihrig@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 15:39:42 by lihrig            #+#    #+#             */
-/*   Updated: 2025/01/31 15:50:58 by lihrig           ###   ########.fr       */
+/*   Updated: 2025/02/02 16:15:43 by lihrig           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@
 #include <stdlib.h>
 
 // Freigeben der Liste wenn malloc fehlschlaegt
-void	freeList(struct Node **head)
+void	free_list(struct s_Node **head)
 {
-	struct Node	*temp;
+	struct s_Node	*temp;
 
 	while (*head != NULL)
 	{
@@ -28,9 +28,10 @@ void	freeList(struct Node **head)
 	}
 	*head = NULL;
 }
-void	handle_error(struct Node **head)
+
+void	handle_error(struct s_Node **head)
 {
 	write(1, "Error\n", 6);
-	freeList(head);
+	free_list(head);
 	exit(EXIT_FAILURE);
 }

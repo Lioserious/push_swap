@@ -6,7 +6,7 @@
 /*   By: lihrig <lihrig@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 12:16:29 by lihrig            #+#    #+#             */
-/*   Updated: 2025/01/31 15:54:10 by lihrig           ###   ########.fr       */
+/*   Updated: 2025/02/02 16:24:21 by lihrig           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,43 +17,43 @@
 # include <stdio.h>
 # include <stdlib.h>
 
-struct			Node
+struct			s_Node
 {
-	int			data;
-	struct Node	*next;
+	int				data;
+	struct s_Node	*next;
 };
 
 // error handling
-void			freeList(struct Node **head);
-void			handle_error(struct Node **head);
+void			free_list(struct s_Node **head);
+void			handle_error(struct s_Node **head);
 void			free_the_mellok(char ***split_array);
 // input_processing
-int				process_string_with_spaces(char *str, struct Node **listA);
-int				process_single_arg(char *str, struct Node **listA);
-int				process_input(int argc, char **argv, struct Node **listA);
+int				process_string_with_spaces(char *str, struct s_Node **listA);
+int				process_single_arg(char *str, struct s_Node **listA);
+int				process_input(int argc, char **argv, struct s_Node **listA);
 // input_validation
 int				check_if_numeric(const char *str);
-long long int	convert_to_int(const char *str, struct Node **head);
-long long int	adjusted_ft_atoi(const char *str, struct Node **head);
+long long int	convert_to_int(const char *str, struct s_Node **head);
+long long int	adjusted_ft_atoi(const char *str, struct s_Node **head);
 // list_operations_basics
-struct Node		*createNode(int value);
-void			insertAtEnd(struct Node **head, long long int value);
-int				getListLength(struct Node *head);
+struct s_Node	*createNode(int value);
+void			insert_at_end(struct s_Node **head, long long int value);
+int				get_list_length(struct s_Node *head);
 // sollte ich entfernen
-void			printList(struct Node *head);
+void			print_list(struct s_Node *head);
 //
-int				exists_in_list(struct Node *head, long long int value);
+int				exists_in_list(struct s_Node *head, long long int value);
 // int				count_numbers(const char *str);
 // sorting functions
-void			sa_swap_a(struct Node **head);
-void			ss_swap_swap(struct Node **head_a, struct Node **head_b);
-void			pa_push_a(struct Node **head_a, struct Node **head_b);
-void			pb_push_b(struct Node **head_a, struct Node **head_b);
-void			ra_rotate_a(struct Node **head_a);
-void			rb_rotate_b(struct Node **head_b);
-void			rr(struct Node **head_a, struct Node **head_b);
-void			rra_reverse_a(struct Node **head_a);
-void			rrb_reverse_b(struct Node **head_b);
-void			rrr(struct Node **head_a, struct Node **head_b);
+void			sa_swap_a(struct s_Node **head);
+void			ss_swap_swap(struct s_Node **head_a, struct s_Node **head_b);
+void			pa_push_a(struct s_Node **head_a, struct s_Node **head_b);
+void			pb_push_b(struct s_Node **head_a, struct s_Node **head_b);
+void			ra_rotate_a(struct s_Node **head_a);
+void			rb_rotate_b(struct s_Node **head_b);
+void			rr(struct s_Node **head_a, struct s_Node **head_b);
+void			rra_reverse_a(struct s_Node **head_a);
+void			rrb_reverse_b(struct s_Node **head_b);
+void			rrr(struct s_Node **head_a, struct s_Node **head_b);
 
 #endif
