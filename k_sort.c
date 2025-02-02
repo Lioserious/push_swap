@@ -6,7 +6,7 @@
 /*   By: lihrig <lihrig@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/02 16:34:42 by lihrig            #+#    #+#             */
-/*   Updated: 2025/02/02 17:13:22 by lihrig           ###   ########.fr       */
+/*   Updated: 2025/02/02 17:22:58 by lihrig           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,32 @@ int	is_sorted(struct s_Node *head)
 	}
 	return (1);
 }
-void sort_two(struct s_Node **head)
+void	sort_two(struct s_Node **head)
 {
-    if ((*head)->data > (*head)->next->data)
-        sa_swap_a(head);
+	if ((*head)->data > (*head)->next->data)
+		sa_swap_a(head);
+}
+
+void	sort_three(struct s_Node **head)
+{
+	int first = (*head)->data;
+	int second = (*head)->next->data;
+	int third = (*head)->next->next->data;
+
+	if (first > second && second < third && first < third)
+		sa_swap_a(head);
+	else if (first > second && second > third)
+	{
+		sa_swap_a(head);
+		rra_reverse_a(head);
+	}
+	else if (first > second && second < third && first > third)
+		ra_rotate_a(head);
+	else if (first < second && second > third && first < third)
+	{
+		sa_swap_a(head);
+		ra_rotate_a(head);
+	}
+	else if (first < second && second > third && first > third)
+		rra_reverse_a(head);
 }
