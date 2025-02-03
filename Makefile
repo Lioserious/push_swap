@@ -6,7 +6,7 @@
 #    By: lihrig <lihrig@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/04 14:13:24 by lihrig            #+#    #+#              #
-#    Updated: 2025/02/03 14:55:18 by lihrig           ###   ########.fr        #
+#    Updated: 2025/02/03 15:03:40 by lihrig           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,6 +22,7 @@ SRC_FILES = error_handling.c \
 			input_processing.c \
 			input_validation.c \
 			support_functions.c \
+			k_sort_support.c \
 			k_sort.c \
 			list_operations_basic.c \
 			main.c \
