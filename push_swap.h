@@ -6,7 +6,7 @@
 /*   By: lihrig <lihrig@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 12:16:29 by lihrig            #+#    #+#             */
-/*   Updated: 2025/02/03 15:02:55 by lihrig           ###   ########.fr       */
+/*   Updated: 2025/02/03 16:51:55 by lihrig           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,4 +75,6 @@ void				move_bucket_to_b(struct s_Node **head_a,
 void				move_all_b_to_a(struct s_Node **head_a,
 						struct s_Node **head_b);
 void				k_sort(struct s_Node **head_a, struct s_Node **head_b);
+// support function
+int					find_max_position(struct s_Node *head);
 #endif
