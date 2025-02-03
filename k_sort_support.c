@@ -6,9 +6,11 @@
 /*   By: lihrig <lihrig@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 14:58:52 by lihrig            #+#    #+#             */
-/*   Updated: 2025/02/03 14:59:23 by lihrig           ###   ########.fr       */
+/*   Updated: 2025/02/03 15:00:41 by lihrig           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "push_swap.h"
 
 void	find_min_max(struct s_Node *head, int *min, int *max)
 {
