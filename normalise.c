@@ -10,3 +10,26 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+struct Node* copyList(struct Node* head)
+{
+    if (head == NULL)
+        return NULL;
+    struct Node* newHead = (struct Node*)malloc(sizeof(struct Node));
+    if (newHead == NULL)
+        return NULL;
+    newHead->data = head->data;
+    struct Node* current = head->next;
+    struct Node* newCurrent = newHead;
+    while (current != NULL)
+	{
+        struct Node* newNode = (struct Node*)malloc(sizeof(struct Node));
+        if (newNode == NULL)
+			return NULL;
+        newNode->data = current->data;
+        newNode->next = NULL;
+        newCurrent->next = newNode;
+        current = current->next;
+        newCurrent = newCurrent->next;
+    }
+    return (newHead);
+}
