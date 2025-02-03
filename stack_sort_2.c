@@ -6,7 +6,7 @@
 /*   By: lihrig <lihrig@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 17:08:46 by lihrig            #+#    #+#             */
-/*   Updated: 2025/02/02 16:37:46 by lihrig           ###   ########.fr       */
+/*   Updated: 2025/02/03 17:34:04 by lihrig           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ void	rra_reverse_a(struct s_Node **head_a)
 	prev->next = NULL;
 	curloop->next = *head_a;
 	*head_a = curloop;
-	write(1,"rra\n",3);
+	write(1,"rra\n",4);
 }
 
 void	rrb_reverse_b(struct s_Node **head_b)
@@ -73,12 +73,12 @@ void	rrb_reverse_b(struct s_Node **head_b)
 	prev->next = NULL;
 	curloop->next = *head_b;
 	*head_b = curloop;
-	write(1,"rrb\n",3);
+	write(1,"rrb\n",4);
 }
 
 void	rrr(struct s_Node **head_a, struct s_Node **head_b)
 {
 	rra_reverse_a(head_a);
 	rrb_reverse_b(head_b);
-	write(1,"rrr\n",3);
+	write(1,"rrr\n",4);
 }
