@@ -6,7 +6,7 @@
 /*   By: lihrig <lihrig@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 15:44:16 by lihrig            #+#    #+#             */
-/*   Updated: 2025/02/03 14:49:36 by lihrig           ###   ########.fr       */
+/*   Updated: 2025/02/03 17:35:24 by lihrig           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,15 +42,15 @@ int main(int argc, char **argv)
     if (process_input(argc, argv, &list_a) != 0)
         return (1);
         
-    write(1, "Original list: ", 14);
-    print_list(list_a);
-    write(1, "\n", 1);
+    // write(1, "Original list: ", 14);
+    // print_list(list_a);
+    // write(1, "\n", 1);
     
     easy_k_sort(&list_a, &list_b);
     
-    write(1, "Sorted list:   ", 14);
-    print_list(list_a);
-    write(1, "\n", 1);
+    // write(1, "Sorted list:   ", 14);
+    // print_list(list_a);
+    // write(1, "\n", 1);
     
     free_list(&list_a);
     free_list(&list_b);
