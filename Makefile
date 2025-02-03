@@ -6,7 +6,7 @@
 #    By: lihrig <lihrig@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/04 14:13:24 by lihrig            #+#    #+#              #
-#    Updated: 2025/02/03 15:03:40 by lihrig           ###   ########.fr        #
+#    Updated: 2025/02/03 15:10:15 by lihrig           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,7 +30,7 @@ SRC_FILES = error_handling.c \
 			push_swap_split.c \
 			stack_sort.c \
 			stack_sort_2.c \
-			support_functions.c \
+
 			
 
 OBJ_FILES = $(SRC_FILES:%.c=%.o)
