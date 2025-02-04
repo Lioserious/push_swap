@@ -6,7 +6,7 @@
 #    By: lihrig <lihrig@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/04 14:13:24 by lihrig            #+#    #+#              #
-#    Updated: 2025/02/03 15:10:15 by lihrig           ###   ########.fr        #
+#    Updated: 2025/02/04 17:05:13 by lihrig           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,6 +26,7 @@ SRC_FILES = error_handling.c \
 			k_sort.c \
 			list_operations_basic.c \
 			main.c \
+			normalise.c \
 			pre_sort.c \
 			push_swap_split.c \
 			stack_sort.c \
