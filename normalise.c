@@ -6,29 +6,32 @@
 /*   By: lihrig <lihrig@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 17:46:00 by lihrig            #+#    #+#             */
-/*   Updated: 2025/02/04 16:08:28 by lihrig           ###   ########.fr       */
+/*   Updated: 2025/02/04 16:14:36 by lihrig           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-struct Node* copyList(struct Node* head)
+struct s_Node* copyList(struct s_Node* head)
 {
     if (head == NULL)
         return NULL;
-    struct Node* newHead = (struct Node*)malloc(sizeof(struct Node));
+    
+    struct s_Node* newHead = create_node(head->data);
     if (newHead == NULL)
-        return NULL;
-    newHead->data = head->data;
-    struct Node* current = head->next;
-    struct Node* newCurrent = newHead;
+        handle_error(&head);
+    
+    struct s_Node* current = head->next;
+    struct s_Node* newCurrent = newHead;
+    
     while (current != NULL)
-	{
-        struct Node* newNode = (struct Node*)malloc(sizeof(struct Node));
+    {
+        struct s_Node* newNode = create_node(current->data);
         if (newNode == NULL)
-			return NULL;
-        newNode->data = current->data;
-        newNode->next = NULL;
+        {
+            free_list(&newHead);
+            handle_error(&head);
+        }
         newCurrent->next = newNode;
         current = current->next;
         newCurrent = newCurrent->next;
