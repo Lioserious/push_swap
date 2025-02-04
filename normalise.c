@@ -6,13 +6,13 @@
 /*   By: lihrig <lihrig@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 17:46:00 by lihrig            #+#    #+#             */
-/*   Updated: 2025/02/04 16:39:58 by lihrig           ###   ########.fr       */
+/*   Updated: 2025/02/04 17:02:44 by lihrig           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-struct s_Node	*copyList(struct s_Node *head)
+struct s_Node	*copy_list(struct s_Node *head)
 {
 	struct s_Node	*newHead;
 	struct s_Node	*current;
@@ -41,7 +41,7 @@ struct s_Node	*copyList(struct s_Node *head)
 	return (newHead);
 }
 
-void	bubbleSort(struct s_Node *head)
+void	bubble_sort(struct s_Node *head)
 {
 	struct s_Node	*temp;
 	int				i;
@@ -69,3 +69,30 @@ void	bubbleSort(struct s_Node *head)
 	}
 }
 
+void normalise(struct s_Node *head)
+{
+    struct s_Node *copy;
+    struct s_Node *current;
+    struct s_Node *sorted_search;
+    int index;
+
+    if (head == NULL)
+        return;
+    copy = copy_list(head);
+    bubble_sort(copy);
+    
+    current = head;
+    while (current)
+    {
+        sorted_search = copy;
+        index = 0;
+        while (sorted_search->data != current->data)
+        {
+            index++;
+            sorted_search = sorted_search->next;
+        }
+        current->data = index;
+        current = current->next;
+    }
+    free_list(&copy);
+}
