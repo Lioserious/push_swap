@@ -6,7 +6,7 @@
 /*   By: lihrig <lihrig@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 12:16:29 by lihrig            #+#    #+#             */
-/*   Updated: 2025/02/04 18:44:40 by lihrig           ###   ########.fr       */
+/*   Updated: 2025/02/04 19:24:46 by lihrig           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ void				sort_three(struct s_Node **head);
 int					find_max_position(struct s_Node *head);
 int					ft_sqrt(int n);
 // ksort
-void				sort_stacks(struct s_Node **head_a, struct s_Node **head_b);
+void				easy_k_sort(struct s_Node **head_a, struct s_Node **head_b);
 // support function
 int					exists_in_list(struct s_Node *head, long long int value);
 // normalise
