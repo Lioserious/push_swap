@@ -6,7 +6,7 @@
 /*   By: lihrig <lihrig@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 14:58:52 by lihrig            #+#    #+#             */
-/*   Updated: 2025/02/03 15:00:41 by lihrig           ###   ########.fr       */
+/*   Updated: 2025/02/04 18:01:44 by lihrig           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,4 +77,31 @@ void	move_to_position(struct s_Node **head, int position)
 			position++;
 		}
 	}
+}
+
+int	ft_sqrt(int n)
+{
+	int		start;
+	int		end;
+	int		mid;
+	long	square;
+
+	if (n <= 0)
+		return (0);
+	if (n == 1)
+		return (1);
+	start = 1;
+	end = n / 2;
+	while (start <= end)
+	{
+		mid = start + (end - start) / 2;
+		square = (long)mid * mid;
+		if (square == n)
+			return (mid);
+		if (square < n)
+			start = mid + 1;
+		else
+			end = mid - 1;
+	}
+	return (end);
 }
