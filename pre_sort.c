@@ -6,7 +6,7 @@
 /*   By: lihrig <lihrig@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/02 17:56:49 by lihrig            #+#    #+#             */
-/*   Updated: 2025/02/02 17:57:40 by lihrig           ###   ########.fr       */
+/*   Updated: 2025/02/04 18:45:01 by lihrig           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,13 @@ void	sort_two(struct s_Node **head)
 
 void	sort_three(struct s_Node **head)
 {
-	int first = (*head)->data;
-	int second = (*head)->next->data;
-	int third = (*head)->next->next->data;
+	int	first;
+	int	second;
+	int	third;
 
+	first = (*head)->data;
+	second = (*head)->next->data;
+	third = (*head)->next->next->data;
 	if (first > second && second < third && first < third)
 		sa_swap_a(head);
 	else if (first > second && second > third)

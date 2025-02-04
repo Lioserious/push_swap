@@ -6,7 +6,7 @@
 /*   By: lihrig <lihrig@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 17:46:00 by lihrig            #+#    #+#             */
-/*   Updated: 2025/02/04 17:02:44 by lihrig           ###   ########.fr       */
+/*   Updated: 2025/02/04 18:45:04 by lihrig           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,30 +69,29 @@ void	bubble_sort(struct s_Node *head)
 	}
 }
 
-void normalise(struct s_Node *head)
+void	normalise(struct s_Node *head)
 {
-    struct s_Node *copy;
-    struct s_Node *current;
-    struct s_Node *sorted_search;
-    int index;
+	struct s_Node	*copy;
+	struct s_Node	*current;
+	struct s_Node	*sorted_search;
+	int				index;
 
-    if (head == NULL)
-        return;
-    copy = copy_list(head);
-    bubble_sort(copy);
-    
-    current = head;
-    while (current)
-    {
-        sorted_search = copy;
-        index = 0;
-        while (sorted_search->data != current->data)
-        {
-            index++;
-            sorted_search = sorted_search->next;
-        }
-        current->data = index;
-        current = current->next;
-    }
-    free_list(&copy);
+	if (head == NULL)
+		return ;
+	copy = copy_list(head);
+	bubble_sort(copy);
+	current = head;
+	while (current)
+	{
+		sorted_search = copy;
+		index = 0;
+		while (sorted_search->data != current->data)
+		{
+			index++;
+			sorted_search = sorted_search->next;
+		}
+		current->data = index;
+		current = current->next;
+	}
+	free_list(&copy);
 }

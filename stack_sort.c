@@ -6,7 +6,7 @@
 /*   By: lihrig <lihrig@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 17:08:46 by lihrig            #+#    #+#             */
-/*   Updated: 2025/02/03 17:33:41 by lihrig           ###   ########.fr       */
+/*   Updated: 2025/02/04 18:44:54 by lihrig           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	sa_swap_a(struct s_Node **head)
 	temp = (*head)->data;
 	(*head)->data = (*head)->next->data;
 	(*head)->next->data = temp;
-	write(1,"sa\n",3);
+	write(1, "sa\n", 3);
 }
 
 // swap a and b at the same time: DER EDGE CASE Koennte probleme machen
@@ -30,7 +30,7 @@ void	ss_swap_swap(struct s_Node **head_a, struct s_Node **head_b)
 {
 	sa_swap_a(head_a);
 	sa_swap_a(head_b);
-	write(1,"ss\n",3);
+	write(1, "ss\n", 3);
 }
 
 // temp->next = *head_a; verknuepft temp mit der bereits bestehenden list von a
@@ -44,7 +44,7 @@ void	pa_push_a(struct s_Node **head_a, struct s_Node **head_b)
 	*head_b = (*head_b)->next;
 	temp->next = *head_a;
 	*head_a = temp;
-	write(1,"pa\n",3);
+	write(1, "pa\n", 3);
 }
 
 void	pb_push_b(struct s_Node **head_a, struct s_Node **head_b)
@@ -74,5 +74,5 @@ void	ra_rotate_a(struct s_Node **head_a)
 	while (curloop->next != NULL)
 		curloop = curloop->next;
 	curloop->next = temp;
-	write(1,"ra\n",3);
+	write(1, "ra\n", 3);
 }

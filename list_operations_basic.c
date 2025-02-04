@@ -6,7 +6,7 @@
 /*   By: lihrig <lihrig@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 15:36:44 by lihrig            #+#    #+#             */
-/*   Updated: 2025/02/02 16:23:55 by lihrig           ###   ########.fr       */
+/*   Updated: 2025/02/04 18:45:13 by lihrig           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,16 +69,16 @@ int	get_list_length(struct s_Node *head)
 	return (count);
 }
 
-// Funktion: Liste anzeigen, PRINTF Ersetzen UND LOESCHEN
-void	print_list(struct s_Node *head)
-{
-	struct s_Node	*temp;
+// // Funktion: Liste anzeigen, PRINTF Ersetzen UND LOESCHEN
+// void	print_list(struct s_Node *head)
+// {
+// 	struct s_Node	*temp;
 
-	temp = head;
-	while (temp != NULL)
-	{
-		printf("%d -> ", temp->data);
-		temp = temp->next;
-	}
-	printf("NULL\n");
-}
+// 	temp = head;
+// 	while (temp != NULL)
+// 	{
+// 		printf("%d -> ", temp->data);
+// 		temp = temp->next;
+// 	}
+// 	printf("NULL\n");
+// }
