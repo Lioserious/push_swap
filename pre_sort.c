@@ -6,7 +6,7 @@
 /*   By: lihrig <lihrig@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/02 17:56:49 by lihrig            #+#    #+#             */
-/*   Updated: 2025/02/04 18:45:01 by lihrig           ###   ########.fr       */
+/*   Updated: 2025/02/04 18:59:44 by lihrig           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ int	is_sorted(struct s_Node *head)
 	}
 	return (1);
 }
+
 void	sort_two(struct s_Node **head)
 {
 	if ((*head)->data > (*head)->next->data)

@@ -6,7 +6,7 @@
 /*   By: lihrig <lihrig@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 17:46:00 by lihrig            #+#    #+#             */
-/*   Updated: 2025/02/04 18:45:04 by lihrig           ###   ########.fr       */
+/*   Updated: 2025/02/04 18:58:53 by lihrig           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,31 +14,31 @@
 
 struct s_Node	*copy_list(struct s_Node *head)
 {
-	struct s_Node	*newHead;
+	struct s_Node	*new_head;
 	struct s_Node	*current;
-	struct s_Node	*newCurrent;
-	struct s_Node	*newNode;
+	struct s_Node	*new_current;
+	struct s_Node	*new_node;
 
 	if (head == NULL)
 		return (NULL);
-	newHead = create_node(head->data);
-	if (newHead == NULL)
+	new_head = create_node(head->data);
+	if (new_head == NULL)
 		handle_error(&head);
 	current = head->next;
-	newCurrent = newHead;
+	new_current = new_head;
 	while (current != NULL)
 	{
-		newNode = create_node(current->data);
-		if (newNode == NULL)
+		new_node = create_node(current->data);
+		if (new_node == NULL)
 		{
-			free_list(&newHead);
+			free_list(&new_head);
 			handle_error(&head);
 		}
-		newCurrent->next = newNode;
+		new_current->next = new_node;
 		current = current->next;
-		newCurrent = newCurrent->next;
+		new_current = new_current->next;
 	}
-	return (newHead);
+	return (new_head);
 }
 
 void	bubble_sort(struct s_Node *head)

@@ -6,7 +6,7 @@
 /*   By: lihrig <lihrig@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/02 16:34:42 by lihrig            #+#    #+#             */
-/*   Updated: 2025/02/04 18:45:16 by lihrig           ###   ########.fr       */
+/*   Updated: 2025/02/04 19:07:00 by lihrig           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,4 +50,19 @@ void	sort_stacks(struct s_Node **head_a, struct s_Node **head_b)
 				rrb_reverse_b(head_b);
 		pa_push_a(head_a, head_b);
 	}
+}
+
+void	easy_k_sort(struct s_Node **head_a, struct s_Node **head_b)
+{
+	int	size;
+
+	if (*head_a == NULL || is_sorted(*head_a))
+		return ;
+	size = get_list_length(*head_a);
+	if (size == 2)
+		sort_two(head_a);
+	else if (size == 3)
+		sort_three(head_a);
+	else
+		sort_stacks(head_a, head_b);
 }

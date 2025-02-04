@@ -6,7 +6,7 @@
 /*   By: lihrig <lihrig@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 12:16:29 by lihrig            #+#    #+#             */
-/*   Updated: 2025/02/04 17:10:21 by lihrig           ###   ########.fr       */
+/*   Updated: 2025/02/04 18:44:40 by lihrig           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,11 +41,8 @@ long long int		adjusted_ft_atoi(const char *str, struct s_Node **head);
 struct s_Node		*create_node(int value);
 void				insert_at_end(struct s_Node **head, long long int value);
 int					get_list_length(struct s_Node *head);
-// sollte ich entfernen
-void				print_list(struct s_Node *head);
-//
-int					exists_in_list(struct s_Node *head, long long int value);
-// int				count_numbers(const char *str);
+// // sollte ich entfernen
+// void				print_list(struct s_Node *head);
 // sorting functions
 void				sa_swap_a(struct s_Node **head);
 void				ss_swap_swap(struct s_Node **head_a,
@@ -63,20 +60,12 @@ int					is_sorted(struct s_Node *head);
 void				sort_two(struct s_Node **head);
 void				sort_three(struct s_Node **head);
 // k_sort_support
-void				find_min_max(struct s_Node *head, int *min, int *max);
-int					calculate_bucket_size(int min, int max, int list_size);
-int					find_next_in_bucket(struct s_Node *head, int bucket_min,
-						int bucket_max);
-void				move_to_position(struct s_Node **head, int position);
-// ksort
-void				move_bucket_to_b(struct s_Node **head_a,
-						struct s_Node **head_b, int current_bucket_min,
-						int bucket_size, int max);
-void				move_all_b_to_a(struct s_Node **head_a,
-						struct s_Node **head_b);
-void				k_sort(struct s_Node **head_a, struct s_Node **head_b);
-// support function
 int					find_max_position(struct s_Node *head);
+int					ft_sqrt(int n);
+// ksort
+void				sort_stacks(struct s_Node **head_a, struct s_Node **head_b);
+// support function
+int					exists_in_list(struct s_Node *head, long long int value);
 // normalise
 void				normalise(struct s_Node *head);
 #endif
