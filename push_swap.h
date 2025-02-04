@@ -6,7 +6,7 @@
 /*   By: lihrig <lihrig@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 12:16:29 by lihrig            #+#    #+#             */
-/*   Updated: 2025/02/03 16:51:55 by lihrig           ###   ########.fr       */
+/*   Updated: 2025/02/04 17:10:21 by lihrig           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int					check_if_numeric(const char *str);
 long long int		convert_to_int(const char *str, struct s_Node **head);
 long long int		adjusted_ft_atoi(const char *str, struct s_Node **head);
 // list_operations_basics
-struct s_Node		*createNode(int value);
+struct s_Node		*create_node(int value);
 void				insert_at_end(struct s_Node **head, long long int value);
 int					get_list_length(struct s_Node *head);
 // sollte ich entfernen
@@ -77,4 +77,6 @@ void				move_all_b_to_a(struct s_Node **head_a,
 void				k_sort(struct s_Node **head_a, struct s_Node **head_b);
 // support function
 int					find_max_position(struct s_Node *head);
+// normalise
+void				normalise(struct s_Node *head);
 #endif
