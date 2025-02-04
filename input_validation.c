@@ -6,7 +6,7 @@
 /*   By: lihrig <lihrig@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 15:33:33 by lihrig            #+#    #+#             */
-/*   Updated: 2025/02/04 19:30:09 by lihrig           ###   ########.fr       */
+/*   Updated: 2025/02/04 19:34:44 by lihrig           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,8 +57,8 @@ long long int	convert_to_int(const char *str, struct s_Node **head)
 	while (*str >= '0' && *str <= '9')
 	{
 		nbr = nbr * 10 + (*str - '0');
-		if ((vrz == 1 && nbr > INT_MAX) || (vrz == -1 && nbr >
-				-(long long int)INT_MIN))
+		if ((vrz == 1 && nbr > INT_MAX) || (vrz == -1
+				&& nbr > -(long long int)INT_MIN))
 			handle_error(head);
 		str++;
 	}
