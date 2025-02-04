@@ -6,12 +6,11 @@
 /*   By: lihrig <lihrig@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 16:19:13 by lihrig            #+#    #+#             */
-/*   Updated: 2025/02/04 18:44:56 by lihrig           ###   ########.fr       */
+/*   Updated: 2025/02/04 19:30:52 by lihrig           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdio.h>
 
 int	exists_in_list(struct s_Node *head, long long int value)
 {

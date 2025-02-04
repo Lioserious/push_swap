@@ -6,14 +6,11 @@
 /*   By: lihrig <lihrig@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 15:36:44 by lihrig            #+#    #+#             */
-/*   Updated: 2025/02/04 18:45:13 by lihrig           ###   ########.fr       */
+/*   Updated: 2025/02/04 19:30:18 by lihrig           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <limits.h>
-#include <stdio.h>
-#include <stdlib.h>
 
 // Erstellt Knoten
 struct s_Node	*create_node(int value)

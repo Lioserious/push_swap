@@ -6,14 +6,11 @@
 /*   By: lihrig <lihrig@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 12:18:59 by lihrig            #+#    #+#             */
-/*   Updated: 2025/02/04 18:45:24 by lihrig           ###   ########.fr       */
+/*   Updated: 2025/02/04 19:30:04 by lihrig           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <limits.h>
-#include <stdio.h>
-#include <stdlib.h>
 
 int	process_string_with_spaces(char *str, struct s_Node **listA)
 {

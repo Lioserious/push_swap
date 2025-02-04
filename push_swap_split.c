@@ -6,12 +6,11 @@
 /*   By: lihrig <lihrig@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 18:21:03 by lihrig            #+#    #+#             */
-/*   Updated: 2025/02/04 19:01:06 by lihrig           ###   ########.fr       */
+/*   Updated: 2025/02/04 19:30:45 by lihrig           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdio.h>
 
 static size_t	return_word_nbr(char const *s, char c)
 {
