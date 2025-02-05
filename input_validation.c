@@ -6,7 +6,7 @@
 /*   By: lihrig <lihrig@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 15:33:33 by lihrig            #+#    #+#             */
-/*   Updated: 2025/02/04 19:34:44 by lihrig           ###   ########.fr       */
+/*   Updated: 2025/02/05 14:30:13 by lihrig           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,7 @@
 int	check_if_numeric(const char *str)
 {
 	int	i;
-	int	digits_exist;
 
-	digits_exist = 0;
 	i = 0;
 	if (!str || *str == '\0')
 		return (0);
@@ -29,10 +27,7 @@ int	check_if_numeric(const char *str)
 	if (str[i] < '0' || str[i] > '9')
 		return (0);
 	while (str[i] >= '0' && str[i] <= '9')
-	{
-		digits_exist = 1;
 		i++;
-	}
 	if (str[i] != '\0')
 		return (0);
 	return (1);

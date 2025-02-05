@@ -6,7 +6,7 @@
 /*   By: lihrig <lihrig@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/29 19:11:09 by lihrig            #+#    #+#             */
-/*   Updated: 2024/11/05 17:32:04 by lihrig           ###   ########.fr       */
+/*   Updated: 2025/02/05 14:31:32 by lihrig           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 int	ft_putnbr_mod(int n, int fd)
 {
 	char	nbr;
-	int		*count;
+	// int		*count;
 
-	count = get_count();
+	// count = get_count();
 	if (n == -2147483648)
 	{
 		if (my_putstr("-2147483648") == -1)
