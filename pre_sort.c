@@ -6,7 +6,7 @@
 /*   By: lihrig <lihrig@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/02 17:56:49 by lihrig            #+#    #+#             */
-/*   Updated: 2025/02/04 18:59:44 by lihrig           ###   ########.fr       */
+/*   Updated: 2025/02/07 16:41:57 by lihrig           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,4 +57,27 @@ void	sort_three(struct s_Node **head)
 	}
 	else if (first < second && second > third && first > third)
 		rra_reverse_a(head);
+}
+
+void	sort_less_than_ten(struct s_Node **a, struct s_Node **b)
+{
+	int	len;
+	int	min_pos;
+
+	len = get_list_length(*a);
+	while (len > 3 && !is_sorted(*a))
+	{
+		min_pos = find_min_position(*a);
+		if (min_pos <= len / 2)
+			while (min_pos--)
+				ra_rotate_a(a);
+		else
+			while (min_pos++ < len)
+				rra_reverse_a(a);
+		pb_push_b(a, b);
+		len--;
+	}
+	sort_three(a);
+	while (*b)
+		pa_push_a(a, b);
 }

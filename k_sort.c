@@ -6,7 +6,7 @@
 /*   By: lihrig <lihrig@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/02 16:34:42 by lihrig            #+#    #+#             */
-/*   Updated: 2025/02/04 19:16:50 by lihrig           ###   ########.fr       */
+/*   Updated: 2025/02/07 16:41:34 by lihrig           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,15 +62,29 @@ void	sort_stacks(struct s_Node **head_a, struct s_Node **head_b)
 
 void	easy_k_sort(struct s_Node **head_a, struct s_Node **head_b)
 {
-	int	size;
+   int	size;
 
-	if (*head_a == NULL || is_sorted(*head_a))
-		return ;
-	size = get_list_length(*head_a);
-	if (size == 2)
-		sort_two(head_a);
-	else if (size == 3)
-		sort_three(head_a);
-	else
-		sort_stacks(head_a, head_b);
+   if (*head_a == NULL || is_sorted(*head_a))
+   	return ;
+   size = get_list_length(*head_a);
+   if (size < 10) 
+   {
+   	while (size > 3)
+   	{
+   		int min_pos = find_min_position(*head_a);
+   		if (min_pos <= size / 2)
+   			while (min_pos--)
+   				ra_rotate_a(head_a);
+   		else
+   			while (min_pos++ < size)
+   				rra_reverse_a(head_a);
+   		pb_push_b(head_a, head_b);
+   		size--;
+   	}
+   	sort_three(head_a);
+   	while (*head_b)
+   		pa_push_a(head_a, head_b);
+   }
+   else
+   	sort_stacks(head_a, head_b);
 }

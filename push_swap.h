@@ -6,7 +6,7 @@
 /*   By: lihrig <lihrig@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 12:16:29 by lihrig            #+#    #+#             */
-/*   Updated: 2025/02/04 19:24:46 by lihrig           ###   ########.fr       */
+/*   Updated: 2025/02/07 16:42:27 by lihrig           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,9 +59,12 @@ void				rrr(struct s_Node **head_a, struct s_Node **head_b);
 int					is_sorted(struct s_Node *head);
 void				sort_two(struct s_Node **head);
 void				sort_three(struct s_Node **head);
+void				sort_less_than_ten(struct s_Node **a, struct s_Node **b);
 // k_sort_support
 int					find_max_position(struct s_Node *head);
 int					ft_sqrt(int n);
+int					find_min_position(struct s_Node *head);
+
 // ksort
 void				easy_k_sort(struct s_Node **head_a, struct s_Node **head_b);
 // support function
